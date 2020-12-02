@@ -1,0 +1,23 @@
+# 
+.DS_Store
+# build folder
+build/
+build_ios/
+.externalNativeBuild/
+.gradle/
+.idea/
+.project
+.settings/
+*.iml
+.iml
+local.properties
+.vscode/ipch/
+.vscode/settings.json
+imgui.ini
+build_ubuntu18.04/
+build-VulkanDemos-BobLChen_me-Desktop_Qt_5_15_1_GCC_64bit-Debug/
+build_win10/
+cmake-build-debug/
+.idea/
+
+
