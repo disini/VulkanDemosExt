@@ -208,6 +208,9 @@ namespace vk_demo
 
 		void Update(float time, float delta);
 
+//        void autoRotate(char const axis = "Y",float speed = 1.0);
+        void autoRotate(int axis = 0, float speed = 1.0);
+
 	public:
 
 		float		smooth = 1.0f;

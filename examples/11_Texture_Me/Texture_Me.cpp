@@ -119,6 +119,7 @@ private:
 //		if (!hovered) {
 		if (true) {
 			m_ViewCamera.Update(time, delta);
+            m_ViewCamera.autoRotate(1);
 		}
 
 		UpdateUniformBuffers(time, delta);
@@ -127,7 +128,7 @@ private:
 
 //		if(curFrameNum == 10)
 //        {
-        write_png(renderInfo, string("output/png/frame_" + formatNumByDigit(curFrameNum)).c_str());
+//        write_png(renderInfo, string("output/png/frame_" + formatNumByDigit(curFrameNum)).c_str());
 //            write_png(renderInfo, string("frame_" + formatNumByDigit(curFrameNum)).c_str());
 //        }
 
@@ -400,15 +401,22 @@ private:
 //		m_MVPData.model.AppendRotation(180, Vector3::UpVector);
 //        m_MVPData.model.AppendRotation(180, Vector3::RightVector);
         m_MVPData.model.AppendRotation(180, Vector3::ForwardVector);
-        m_MVPData.model.AppendTranslation(Vector3(0.0f, boundCenter.y * 2.0f, 0));// move model to the coordinates center
+//        m_MVPData.model.AppendTranslation(Vector3(0.0f, boundCenter.y * 2.0f, 0));// move model to the coordinates center
+        m_MVPData.model.AppendTranslation(Vector3(0.0f, boundCenter.y * 2.0f, -boundCenter.z));// move model to the coordinates center
 
 		m_ViewCamera.Perspective(PI / 4, GetWidth(), GetHeight(), 0.1f, 1000.0f);
         cameraPosZ = boundCenter.z - boundSize.Size() * 0.9f;
 //		m_ViewCamera.SetPosition(boundCenter.x, boundCenter.y, boundCenter.z - boundSize.Size() * 2.5f);
 //        m_ViewCamera.SetPosition(boundCenter.x, boundCenter.y * (-3.0f), cameraPosZ);
 //        m_ViewCamera.SetPosition(boundCenter.x, boundCenter.y + m_MVPData.model.GetPosition().y, cameraPosZ);
-        m_ViewCamera.SetPosition(boundCenter.x, 0, cameraPosZ);
-		m_ViewCamera.LookAt(boundCenter);
+//        m_ViewCamera.SetPosition(boundCenter.x, 0, cameraPosZ);
+        m_ViewCamera.SetPosition(boundCenter.x, boundCenter.y, cameraPosZ);
+//		m_ViewCamera.LookAt(boundCenter);
+//        m_ViewCamera.LookAt(boundCenter.x, boundCenter.y, -boundSize.Size());
+//        m_ViewCamera.LookAt(boundCenter.x, boundCenter.y, -boundSize.z);
+        m_ViewCamera.LookAt(boundCenter.x, boundCenter.y, 0);
+//        m_ViewCamera.LookAt(0, 0, 0);
+
 
 
 		

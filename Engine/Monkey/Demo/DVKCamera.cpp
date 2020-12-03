@@ -1,5 +1,6 @@
 ﻿#include "DVKCamera.h"
 #include "GenericPlatform/InputManager.h"
+#include "formatUtils.h"
 
 namespace vk_demo
 {
@@ -26,7 +27,7 @@ namespace vk_demo
 				m_World.TranslateX(-mouseSpeedX * m_World.GetOrigin().Size() / 300);
 				m_World.TranslateY( mouseSpeedY * m_World.GetOrigin().Size() / 300);
 			}
-			else
+            else
 			{
 				m_SpinX += mouseSpeedX * smooth * speedFactor;
 				m_SpinY += mouseSpeedY * smooth * speedFactor;
@@ -53,6 +54,71 @@ namespace vk_demo
 			m_Drag = true;
 		}
 
-		m_LastMouse = InputManager::GetMousePosition();
-	}
+        m_LastMouse = InputManager::GetMousePosition();
+    }
+
+//    void DVKCamera::autoRotate(char const* axis, float speed)
+
+//    void DVKCamera::autoRotate(char const axis, float speed)
+    void DVKCamera::autoRotate(int axis,float speed)
+    {
+        float mouseSpeedX = speed;
+        float mouseSpeedY = speed;
+        float mouseSpeedZ = speed;
+
+//        switch (hash_(axis)) {
+
+//        case "X"_hash:
+//            cout << "X-axis" << endl;
+//            break;
+
+//        case "Y"_hash:
+//            cout << "Y-axis" << endl;
+//            break;
+
+//        case "Z"_hash:
+//            cout << "Z-axis" << endl;
+//            break;
+
+//        default:
+//            break;
+//        }
+
+
+        switch (axis) {
+
+                case 0:
+                    cout << "X-axis" << endl;
+                    m_SpinX += mouseSpeedY * smooth * speedFactor;
+                    m_SpinX *= 1.0f - freeze.x;
+
+//                    m_SpinZ *= 1.0f - freeze.z;
+
+//                    m_World.TranslateZ(m_SpinZ);
+
+                    m_World.RotateX(m_SpinX, true,  &Vector3::ZeroVector);
+                    m_SpinX *= (1 - smooth);
+                    break;
+
+                case 1:
+                    cout << "Y-axis" << endl;
+                    m_SpinY += mouseSpeedY * smooth * speedFactor;
+                    m_SpinY *= 1.0f - freeze.y;
+                    m_World.RotateY(m_SpinY, true,  &Vector3::ZeroVector);
+                    m_SpinY *= (1 - smooth);
+                    break;
+
+                case 2:
+                    cout << "Z-axis" << endl;
+                    m_SpinZ += mouseSpeedY * smooth * speedFactor;
+                    m_SpinZ *= 1.0f - freeze.z;
+                    m_World.RotateZ(m_SpinZ, true,  &Vector3::ZeroVector);
+                    m_SpinZ *= (1 - smooth);
+                    break;
+
+                default:
+                    break;
+                }
+
+    }
 }
