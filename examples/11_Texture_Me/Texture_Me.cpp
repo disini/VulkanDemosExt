@@ -127,7 +127,7 @@ private:
 
 //		if(curFrameNum == 10)
 //        {
-            write_png(renderInfo, string("output/png/frame_" + formatNumByDigit(curFrameNum)).c_str());
+        write_png(renderInfo, string("output/png/frame_" + formatNumByDigit(curFrameNum)).c_str());
 //            write_png(renderInfo, string("frame_" + formatNumByDigit(curFrameNum)).c_str());
 //        }
 

@@ -191,6 +191,7 @@ VulkanSwapChain::VulkanSwapChain(VkInstance instance, std::shared_ptr<VulkanDevi
      * Object: 0x4 (Type = 10) | vkCmdPipelineBarrier(): Image barrier 0x0x7fff9c1cdaf0 newLayout=VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL is not compatible with image 0x4 usage flags 0x16.
      * The Vulkan spec states: If either oldLayout or newLayout is VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL then image must have been created with VK_IMAGE_USAGE_TRANSFER_SRC_BIT set
      * (https://www.khronos.org/registry/vulkan/specs/1.1-extensions/html/vkspec.html#VUID-VkImageMemoryBarrier-oldLayout-01212)*/
+    //
 
     m_SwapChainInfo.imageUsage			= VK_IMAGE_USAGE_TRANSFER_SRC_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT;
 	m_SwapChainInfo.preTransform		= preTransform;
