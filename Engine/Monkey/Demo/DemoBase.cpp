@@ -53,7 +53,7 @@ void DemoBase::Present(int backBufferIndex)
 
     renderInfo.current_buffer = backBufferIndex;
 
-    curFrameNum++;
+//    curFrameNum++;
 }
 
 uint32 DemoBase::GetMemoryTypeFromProperties(uint32 typeBits, VkMemoryPropertyFlags properties)

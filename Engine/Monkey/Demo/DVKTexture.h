@@ -65,7 +65,7 @@ namespace vk_demo
 			int32 height, 
 			std::shared_ptr<VulkanDevice> vulkanDevice, 
 			DVKCommandBuffer* cmdBuffer, 
-			VkImageUsageFlags imageUsageFlags = VK_IMAGE_USAGE_SAMPLED_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT, 
+			VkImageUsageFlags imageUsageFlags = VK_IMAGE_USAGE_SAMPLED_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_TRANSFER_SRC_BIT,
 			ImageLayoutBarrier imageLayout = ImageLayoutBarrier::PixelShaderRead
 		); 
 
@@ -73,7 +73,7 @@ namespace vk_demo
 			const std::string& filename,
 			std::shared_ptr<VulkanDevice> vulkanDevice, 
 			DVKCommandBuffer* cmdBuffer, 
-			VkImageUsageFlags imageUsageFlags = VK_IMAGE_USAGE_SAMPLED_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT, 
+			VkImageUsageFlags imageUsageFlags = VK_IMAGE_USAGE_SAMPLED_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_TRANSFER_SRC_BIT,
 			ImageLayoutBarrier imageLayout = ImageLayoutBarrier::PixelShaderRead
 		);
         

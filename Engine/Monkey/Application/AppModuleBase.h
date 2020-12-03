@@ -123,7 +123,7 @@ protected:
 		int32 fheight   = GetVulkanRHI()->GetSwapChain()->GetHeight();
 		VkDevice device = GetVulkanRHI()->GetDevice()->GetInstanceHandle();
 
-		VkImageCreateInfo imageCreateInfo;
+        VkImageCreateInfo imageCreateInfo;
 		ZeroVulkanStruct(imageCreateInfo, VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO);
 		imageCreateInfo.imageType   = VK_IMAGE_TYPE_2D;
 		imageCreateInfo.format      = PixelFormatToVkFormat(m_DepthFormat, false);

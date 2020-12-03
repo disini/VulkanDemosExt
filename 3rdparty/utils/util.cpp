@@ -663,10 +663,14 @@ bool write_png(struct sample_info& info, const char* basename) {
         VK_PIPELINE_STAGE_TRANSFER_BIT);
 
 
+
+
     set_image_layout(info, info.buffers[info.current_buffer].image, VK_IMAGE_ASPECT_COLOR_BIT,
         VK_IMAGE_LAYOUT_PRESENT_SRC_KHR,
         VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL,
         VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT, VK_PIPELINE_STAGE_TRANSFER_BIT);
+
+//    return true;
 
     VkImageCopy copy_region;
     copy_region.srcSubresource.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
@@ -688,7 +692,7 @@ bool write_png(struct sample_info& info, const char* basename) {
     copy_region.extent.depth = 1;
     
 
-    // Put the copy command info info the command buffer
+    // Put the copy command into the command buffer
     vkCmdCopyImage(info.cmd, info.buffers[info.current_buffer].image,
         VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL,
         mappableImage,
@@ -702,6 +706,7 @@ bool write_png(struct sample_info& info, const char* basename) {
 		VK_PIPELINE_STAGE_TRANSFER_BIT, 
         VK_PIPELINE_STAGE_HOST_BIT);
 
+    return true;
 
 	set_image_layout(info, info.buffers[info.current_buffer].image, VK_IMAGE_ASPECT_COLOR_BIT,
 		VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL,

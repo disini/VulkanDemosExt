@@ -115,8 +115,9 @@ private:
 	{
 		int32 bufferIndex = DemoBase::AcquireBackbufferIndex();
 
-		bool hovered = UpdateUI(time, delta);
-		if (!hovered) {
+//		bool hovered = UpdateUI(time, delta);
+//		if (!hovered) {
+		if (true) {
 			m_ViewCamera.Update(time, delta);
 		}
 
@@ -124,11 +125,13 @@ private:
 		
 		DemoBase::Present(bufferIndex);
 
-		if(curFrameNum == 10)
-        {
-//            write_png(renderInfo, string("output/png/frame_" + formatNumByDigit(curFrameNum)).c_str());
-            write_png(renderInfo, string("frame_" + formatNumByDigit(curFrameNum)).c_str());
-        }
+//		if(curFrameNum == 10)
+//        {
+            write_png(renderInfo, string("output/png/frame_" + formatNumByDigit(curFrameNum)).c_str());
+//            write_png(renderInfo, string("frame_" + formatNumByDigit(curFrameNum)).c_str());
+//        }
+
+        curFrameNum++;
 	}
     
 	bool UpdateUI(float time, float delta)
