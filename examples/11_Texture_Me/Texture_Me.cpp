@@ -115,11 +115,13 @@ private:
 	{
 		int32 bufferIndex = DemoBase::AcquireBackbufferIndex();
 
-//		bool hovered = UpdateUI(time, delta);
+//        bool hovered = UpdateUI(time, delta);
 //		if (!hovered) {
 		if (true) {
 			m_ViewCamera.Update(time, delta);
             m_ViewCamera.autoRotate(1);
+//            m_ParamData.lightDir.Set(std::cos(time), 0, std::sin(time));
+            m_ParamData.lightDir.Set(std::cos(time), std::sin(time), -1);
 		}
 
 		UpdateUniformBuffers(time, delta);
